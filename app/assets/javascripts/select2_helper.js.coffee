@@ -1,37 +1,46 @@
 $(document).on 'ready page:change', () ->
+  jQuery.fn.extend
+    select2_single: (params) ->
+      default_params =
+        width: '100%'
+        initSelection: (element, callback) ->
+          callback
+            id: element.val()
+            text: element.data('init') || ''
+        ajax:
+          url: '/select2/results'
+          dataType: 'json'
+          data: (term, page) ->
+            term: term
+            page: page
+            model: $(this).data('model')
+            column: $(this).data('column')
+          results: (data, page) -> data
+      $.extend default_params, params
+      this.select2 default_params
+    select2_multiple: (params) ->
+      default_params =
+        multiple: true
+        width: '100%'
+        initSelection: (element, callback) ->
+          $(element).val('')
+          callback $(element).data('init')
+        ajax:
+          url: '/select2/results'
+          dataType: 'json'
+          data: (term, page) ->
+            term: term
+            page: page
+            model: $(this).data('model')
+            column: $(this).data('column')
+          results: (data, page) ->
+            data
+      $.extend default_params, params
+      this.select2 default_params
   $('.select2').select2
     width: '100%'
-  $('.select2-single').select2
-    width: '100%'
-    initSelection: (element, callback) ->
-      callback
-        id: element.val()
-        text: element.data('init') || ''
-    ajax:
-      url: '/select2/results'
-      dataType: 'json'
-      data: (term, page) ->
-        term: term
-        page: page
-        model: $(this).data('model')
-        column: $(this).data('column')
-      results: (data, page) -> data
-  $('.select2-multiple').select2
-    multiple: true
-    width: '100%'
-    initSelection: (element, callback) ->
-      $(element).val('')
-      callback $(element).data('init')
-    ajax:
-      url: '/select2/results'
-      dataType: 'json'
-      data: (term, page) ->
-        term: term
-        page: page
-        model: $(this).data('model')
-        column: $(this).data('column')
-      results: (data, page) ->
-        data
+  $('.select2-single').select2_single()
+  $('.select2-multiple').select2_multiple()
   $('.select2-tags-array').select2
     tags: []
     width: '100%'
