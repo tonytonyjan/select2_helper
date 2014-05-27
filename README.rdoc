@@ -1,3 +1,0 @@
-= Select2Helper
-
-This project rocks and uses MIT-LICENSE.
