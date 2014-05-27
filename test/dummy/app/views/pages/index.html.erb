@@ -1,0 +1,37 @@
+<form action="">
+  <h1>Single Select</h1>
+  <%= text_field_tag :single_demo, nil,
+    class: 'select2-single',
+    data: {
+      model: :Project,
+      column: :name
+    }
+  %>
+
+  <h1>Multiple Select</h1>
+  <%= text_field_tag :multiple_demo, nil,
+    class: 'select2-multiple',
+    data: {
+      model: :Project,
+      column: :name
+    }
+  %>
+
+  <h1>Nested Select</h1>
+  <%= text_field_tag :level_1, nil,
+    class: 'select2-single',
+    data: {
+      model: :Project,
+      column: :name,
+      child_field: '#level_2'
+    } 
+  %>
+
+  <%= text_field_tag :level_2, nil,
+    data: {
+      model: :Task,
+      column: :status,
+      foreign_key: :project_id
+    }
+  %>
+</form>

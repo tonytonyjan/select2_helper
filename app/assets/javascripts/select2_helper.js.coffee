@@ -1,6 +1,21 @@
 $(document).on 'ready page:change', () ->
   jQuery.fn.extend
     select2_single: (params) ->
+      this.each () ->
+        if $(this).data('child-field') && child_field = $($(this).data('child-field'))
+          $(this).on 'change', () ->
+            record_id = this.value
+            where_obj = {}
+            where_obj[child_field.data('foreign-key')] = record_id
+            child_field.select2_single
+              ajax:
+                data: (term, page) ->
+                  term: term
+                  page: page
+                  where: where_obj
+                  model: $(this).data('model')
+                  column: $(this).data('column')
+          .trigger('change')
       default_params =
         width: '100%'
         initSelection: (element, callback) ->

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'projects#index'
+  root 'pages#index'
   resources :tasks, :projects
 
   # The priority is based upon order of creation: first created -> highest priority.
