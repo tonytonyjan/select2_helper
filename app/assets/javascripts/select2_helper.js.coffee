@@ -16,8 +16,7 @@ $(document).on 'ready page:change', () ->
             model: $(this).data('model')
             column: $(this).data('column')
           results: (data, page) -> data
-      $.extend default_params, params
-      this.select2 default_params
+      this.select2 $.extend(true, default_params, params)
     select2_multiple: (params) ->
       default_params =
         multiple: true
@@ -35,8 +34,7 @@ $(document).on 'ready page:change', () ->
             column: $(this).data('column')
           results: (data, page) ->
             data
-      $.extend default_params, params
-      this.select2 default_params
+      this.select2 $.extend(true, default_params, params)
   $('.select2').select2
     width: '100%'
   $('.select2-single').select2_single()
