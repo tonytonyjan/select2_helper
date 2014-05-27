@@ -19,6 +19,12 @@
     <%= f.label :content %><br>
     <%= f.text_area :content %>
   </div>
+
+  <div class="field">
+    <%= f.label :task_ids %><br>
+    <%= f.text_field :task_ids, class: 'select2-multiple', data: {model: :Task, column: :status, init: f.object.tasks.map{|task| {id: task.id, text: task.status } } } %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
