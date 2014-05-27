@@ -9,5 +9,7 @@
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+//= require jquery
+//= require select2
+//= require select2_helper
 //= require_tree .

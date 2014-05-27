@@ -12,3 +12,7 @@ gemspec
 
 # To use debugger
 # gem 'debugger'
+gem 'factory_girl_rails'
+gem 'faker'
+gem 'select2-rails'
+gem 'jquery-rails'

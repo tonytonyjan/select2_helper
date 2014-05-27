@@ -18,6 +18,9 @@ Gem::Specification.new do |s|
   s.test_files = Dir['test/**/*']
 
   s.add_dependency 'rails', '~> 4.1.1'
+  s.add_dependency 'kaminari'
+  s.add_dependency 'jbuilder'
+  s.add_dependency 'coffee-rails'
 
   s.add_development_dependency 'pg'
 end

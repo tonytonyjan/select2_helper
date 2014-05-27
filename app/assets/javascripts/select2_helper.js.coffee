@@ -6,7 +6,7 @@ $(document).on 'ready page:change', () ->
     initSelection: (element, callback) ->
       callback
         id: element.val()
-        text: element.data('text')
+        text: element.data('init') || ''
     ajax:
       url: '/select2/results'
       dataType: 'json'
