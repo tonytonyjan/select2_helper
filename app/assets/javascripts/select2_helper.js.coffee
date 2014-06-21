@@ -67,6 +67,7 @@ $(document).on 'ready page:change', () ->
     multiple: true
     width: '100%'
     initSelection: (element, callback) ->
+      $(element).val('')
       callback $.map(element.val().split(','), (value) -> id: value, text: value)
     createSearchChoice: (term) ->
       id: term, text: term
