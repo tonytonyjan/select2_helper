@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    select2_helper (0.1.4)
+    select2_helper (0.2.0)
       coffee-rails
       jbuilder
       kaminari
@@ -46,7 +46,7 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     erubis (2.7.0)
-    execjs (2.2.0)
+    execjs (2.2.1)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.4.1)
