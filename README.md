@@ -82,7 +82,7 @@ Nested Select
       model: :Project,
       column: :name,
       child_field: '#level_2'
-    } 
+    }
 %>
 
 <%=
@@ -93,4 +93,15 @@ Nested Select
       foreign_key: :project_id
     }
 %>
+```
+
+Simple Form Compatiable
+=======================
+
+In `application.css`
+
+```css
+/*
+= require select2_simple_form_compatible
+*/
 ```
