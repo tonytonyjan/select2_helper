@@ -12,7 +12,7 @@ class Select2Controller < ApplicationController
     raise InvalidModel unless model < Select2Concern
     raise NotInWhiteList unless model.select2_allowed_search? params[:column].to_sym
     @records = model.page(params[:page])
-    @records = @records.where(params[:where]) if params[:where]
+    @records = @records.where(params[:where].to_h) if params[:where]
     @records = @records.where("#{params[:column]} ILIKE ?", "%#{params[:term]}%") if params[:term].present?
   end
 
